@@ -1,0 +1,8 @@
+#---------------------------------------------------
+#General Parameters 
+#---------------------------------------------------
+ALL: "striatum"
+SAMPLES: "striatumSamples.tsv"
+MARKERS: "markers1.txt"
+removeClusters: "striatumRemove.txt"
+

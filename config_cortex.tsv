@@ -1,0 +1,8 @@
+#---------------------------------------------------
+#General Parameters 
+#---------------------------------------------------
+ALL: "cortex"
+SAMPLES: "cortexSamples.tsv"
+MARKERS: "markers1.txt" 
+removeClusters: "cortexRemove.txt" 
+
