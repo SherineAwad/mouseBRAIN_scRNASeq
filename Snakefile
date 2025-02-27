@@ -1,8 +1,11 @@
+with open(config['SAMPLES']) as fp:
+    samples = fp.read().splitlines()
+
 rule all:
          input:
             expand("{all}.h5ad", all= config['ALL']), 
             expand("clustered_{all}.h5ad", all=config['ALL']), 
-            expand("figures/dotplot_{all}_markers.png", all =config['ALL']), 
+            #expand("figures/dotplot_{all}_markers.png", all =config['ALL']), 
             expand("reClustered_{all}.h5ad", all =config['ALL']),
  
 rule preprocess: 
@@ -64,13 +67,4 @@ rule annotate:
           python annotate.py {input}
           """
 
-rule subset: 
-      input: 
-         expand("annotated_{all}.h5ad", all=config['ALL'])
-      output: 
-         expand("{subset}_{all}.h5ad", all=config['ALL'], subset = SUBSET),
-      shell: 
-          """ 
-          python subset.py {input} ConesSubtypes.txt" 
-          """
       

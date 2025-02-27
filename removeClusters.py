@@ -29,8 +29,19 @@ subset = combined_adata[~combined_adata.obs['leiden'].isin(clusters_to_remove)]
 
 sc.pl.umap(subset, color=["leiden"], save= "_removedClusters.png",legend_loc="on data")
 
-sc.tl.leiden(subset,  n_iterations=2)
-sc.pl.umap(subset, color=["leiden"], save= "_reClsuteredclusters.png",legend_loc="on data")
+sc.tl.leiden(subset,  n_iterations=2,resolution=2.0)
+sc.pl.umap(subset, color=["leiden"], save= "_reClsuteredclusters.png")
+sc.pl.umap(subset, color=["leiden"], save= "_reClsuteredclustersON.png",legend_loc="on data") 
 
-subset.obs_names_make_unique()
-subset.write(newObject,compression="gzip")
+clusters_to_remove = ['29','33']
+subset2 = subset[~subset.obs['leiden'].isin(clusters_to_remove)]
+
+sc.tl.leiden(subset2,  n_iterations=2,resolution=2.0)
+sc.pl.umap(subset2, color=["leiden"], save= "_reClsuteredclusters2.png")
+sc.pl.umap(subset2, color=["leiden"], save= "_reClsuteredclustersON2.png",legend_loc="on data")
+
+sc.pl.umap(subset2, color='sample', save="_reClusteredBySample.png")
+
+
+#subset2.obs_names_make_unique()
+#subset2.write(newObject,compression="gzip")
