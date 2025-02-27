@@ -44,12 +44,14 @@ sns.set_theme(style="whitegrid")
 df_wide = df_long.pivot(index='sample', columns='CellType', values='Percent').fillna(0)
 
 ax = df_wide.plot(kind='bar', stacked=True, figsize=(10, 6), color=[cell_type_colors[cell] for cell in unique_cell_types])
+ax.grid(False)
 
 plt.ylabel('Cell Ratio (%)')
 plt.xlabel('Sample')
 plt.title('Celltype Ratio')
 
 plt.xticks(rotation=45, ha="right")
+plt.legend(title="Cell Type", bbox_to_anchor=(1.05, 1), loc='upper left') 
 
 plt.tight_layout()
 
