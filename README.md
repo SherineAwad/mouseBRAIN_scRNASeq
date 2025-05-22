@@ -11,11 +11,13 @@ The raw and processed data files can be accessed from the following Google Drive
 
 To run the analysis pipeline, use Snakemake with the appropriate configuration file for your dataset:
 
+For Cortex: 
+
 ```bash
 snakemake -jN -p --configfile config_cortex.tsv
 ``` 
 
-Or
+For Striatum: 
 
 ```bash
 snakemake -jN -p --configfile config_striatum.tsv
