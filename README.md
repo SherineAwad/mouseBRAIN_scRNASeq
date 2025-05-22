@@ -13,10 +13,11 @@ To run the analysis pipeline, use Snakemake with the appropriate configuration f
 
 ```bash
 snakemake -jN -p --configfile config_cortex.tsv
+``` 
 
 Or
 
 ```bash
 snakemake -jN -p --configfile config_striatum.tsv
-
+``` 
 where N is the number of CPU cores (threads) you want to allocate to Snakemake for parallel execution. For example, -j4 uses 4 cores. 
